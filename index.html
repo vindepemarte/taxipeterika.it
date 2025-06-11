@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaxiPet Erika - Servizio di trasporto animali vivi dal nord al sud Italia e viceversa. Taxi per animali in Piemonte.">
+    <meta name="application-name" content="TaxiPetErika">
+    <meta name="apple-mobile-web-app-title" content="TaxiPetErika">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- No cache headers -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>TaxiPetErika - Trasporto Animali</title>
+    <link rel="stylesheet" href="styles.css?v=1.3">
+    <link rel="manifest" href="manifest.json?v=1.3">
+    <link rel="icon" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg">
+    <link rel="apple-touch-icon" sizes="152x152" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg">
+    <link rel="apple-touch-icon" sizes="167x167" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg">
+    <meta name="theme-color" content="#ff00ff">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <img src="icone-animali-taxipet/loading.gif" alt="Caricamento...">
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="icone-animali-taxipet/logo.svg" alt="TaxiPet Erika Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#tragitti">Tragitti</a></li>
+                    <li><a href="#recensioni">Recensioni</a></li>
+                    <li><a href="#galleria">Galleria</a></li>
+                    <li><a href="#contatti" class="cta-button">Contattaci</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Trasporto Professionale per i Tuoi Animali</h1>
+                <p>Dal Nord al Sud Italia e ritorno, affidati a chi ama gli animali quanto te.</p>
+                <div class="trust-stats">
+                    <div class="stat-item">
+                        <div class="stat-count"><span id="years-count">0</span>+</div>
+                        <div class="stat-label">Anni di esperienza</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-count"><span id="clients-count">0</span>+</div>
+                        <div class="stat-label">Clienti soddisfatti</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-count"><span id="animals-count">0</span>+</div>
+                        <div class="stat-label">Animali consegnati</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-count"><span id="km-count">0</span>+</div>
+                        <div class="stat-label">Milioni di km</div>
+                    </div>
+                </div>
+                <a href="#contatti" class="cta-button">Prenota Ora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servizi" class="section">
+        <div class="container">
+            <h2 class="section-title">I Nostri Servizi</h2>
+            <p class="section-description">Offriamo trasporto sicuro e confortevole per vari tipi di animali, garantendo il loro benessere durante tutto il viaggio.</p>
+            
+            <div class="services-grid">
+                <!-- Service items will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Routes Section -->
+    <section id="tragitti" class="section">
+        <div class="container">
+            <h2 class="section-title">I Nostri Tragitti</h2>
+            <p class="section-description">Copriamo numerose città dal Nord al Sud Italia e viceversa, sui versanti Adriatico e Tirrenico.</p>
+            
+            <div class="routes-container">
+                <!-- Routes will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="recensioni" class="section">
+        <div class="container">
+            <h2 class="section-title">Cosa Dicono i Nostri Clienti</h2>
+            
+            <div class="testimonials-container">
+                <!-- Testimonials will be added here -->
+            </div>
+            
+            <div class="social-proof">
+                <p>Visita la nostra <a href="https://www.facebook.com/trasportoanimali/reviews" target="_blank" rel="noopener noreferrer">pagina Facebook</a> per vedere tutte le recensioni.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galleria" class="section">
+        <div class="container">
+            <h2 class="section-title">Galleria Consegne</h2>
+            <p class="section-description">Alcuni degli animali che abbiamo trasportato con cura e professionalità.</p>
+            
+            <div class="gallery-container">
+                <!-- Gallery items will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contatti" class="section">
+        <div class="container">
+            <h2 class="section-title">Prenota il Tuo Trasporto</h2>
+            <p class="section-description">Contattaci per prenotare il trasporto del tuo animale o per informazioni sui nostri servizi.</p>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <h3>Chiamaci o Invia un Messaggio</h3>
+                    <p><img src="icone-animali-taxipet/svg/current-marker.svg" alt="Telefono" class="contact-icon"> <a href="tel:3501056475">350 105 6475</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>WhatsApp</h3>
+                    <p><img src="icone-animali-taxipet/svg/whatsapp.svg" alt="WhatsApp" class="contact-icon"> <a href="https://wa.me/3884675196">388 467 5196</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Social Media</h3>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/trasportoanimali/" target="_blank" rel="noopener noreferrer">
+                            <img src="icone-animali-taxipet/svg/facebook.svg" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            <img src="icone-animali-taxipet/svg/instagram.svg" alt="Instagram" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="icone-animali-taxipet/logo.svg" alt="TaxiPet Erika Logo">
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Collegamenti Rapidi</h3>
+                    <ul>
+                        <li><a href="#servizi">Servizi</a></li>
+                        <li><a href="#tragitti">Tragitti</a></li>
+                        <li><a href="#recensioni">Recensioni</a></li>
+                        <li><a href="#galleria">Galleria</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contatti</h3>
+                    <p>Telefono: <a href="tel:3501056475">350 105 6475</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/3884675196">388 467 5196</a></p>
+                    <p>Email: <a href="mailto:info@taxipeterika.it">info@taxipeterika.it</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 TaxiPet Erika - P.IVA: 01935590891</p>
+                <div class="legal-links">
+                    <a href="#" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="#" id="terms-link">Termini e Condizioni</a>
+                    <a href="#" id="cookie-settings-link">Impostazioni Cookie</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Privacy Policy</h2>
+            <div id="privacy-content">
+                <!-- Privacy policy content will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="terms-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Termini e Condizioni</h2>
+            <div id="terms-content">
+                <!-- Terms content will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Modal -->
+    <div id="cookie-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cookie Policy</h2>
+            <div id="cookie-policy-content">
+                <!-- Cookie policy content will be added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-header">
+                <h3>Informativa sui Cookie</h3>
+                <button id="close-cookie-banner" class="close-cookie">&times;</button>
+            </div>
+            <p>TaxiPet Erika utilizza cookie per migliorare la tua esperienza sul sito. I cookie sono necessari per alcune funzionalità essenziali e ci aiutano a capire come interagisci con il nostro sito.</p>
+            <div class="cookie-settings">
+                <div class="cookie-category">
+                    <input type="checkbox" id="cookie-necessary" checked disabled>
+                    <label for="cookie-necessary"><strong>Necessari</strong> - Essenziali per il funzionamento del sito</label>
+                </div>
+                <div class="cookie-category">
+                    <input type="checkbox" id="cookie-analytics">
+                    <label for="cookie-analytics"><strong>Analitici</strong> - Ci aiutano a migliorare il sito tramite statistiche anonime</label>
+                </div>
+                <div class="cookie-category">
+                    <input type="checkbox" id="cookie-preferences">
+                    <label for="cookie-preferences"><strong>Preferenze</strong> - Ricordano le tue impostazioni per una migliore esperienza</label>
+                </div>
+            </div>
+            <div class="cookie-buttons">
+                <button id="reject-all-cookies" class="cookie-btn reject">Rifiuta Tutti</button>
+                <button id="accept-selected-cookies" class="cookie-btn accept-selected">Accetta Selezionati</button>
+                <button id="accept-all-cookies" class="cookie-btn accept-all">Accetta Tutti</button>
+            </div>
+            <p class="cookie-info">Per maggiori informazioni, consulta la nostra <a href="#" id="cookie-policy-link">Cookie Policy</a> completa.</p>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookie-settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Impostazioni Cookie</h2>
+            <div class="cookie-settings-content">
+                <p>Qui puoi modificare le tue preferenze sui cookie in qualsiasi momento.</p>
+                <div class="cookie-category">
+                    <input type="checkbox" id="modal-cookie-necessary" checked disabled>
+                    <label for="modal-cookie-necessary"><strong>Cookie Necessari</strong></label>
+                    <p>Questi cookie sono essenziali per il funzionamento del sito e non possono essere disattivati.</p>
+                </div>
+                <div class="cookie-category">
+                    <input type="checkbox" id="modal-cookie-analytics">
+                    <label for="modal-cookie-analytics"><strong>Cookie Analitici</strong></label>
+                    <p>Questi cookie ci permettono di contare le visite e le fonti di traffico in modo da poter misurare e migliorare le prestazioni del nostro sito.</p>
+                </div>
+                <div class="cookie-category">
+                    <input type="checkbox" id="modal-cookie-preferences">
+                    <label for="modal-cookie-preferences"><strong>Cookie di Preferenza</strong></label>
+                    <p>Questi cookie consentono al sito di fornire funzionalità e personalizzazione avanzate.</p>
+                </div>
+                <div class="cookie-buttons">
+                    <button id="modal-save-preferences" class="cookie-btn save">Salva Preferenze</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gallery data script -->
+    <script src="galleria.js?v=1.3"></script>
+    <script src="script.js?v=1.3"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js?v=1.3')
+            .then(reg => console.log('Service Worker registrato con successo', reg))
+            .catch(err => console.log('Errore nella registrazione del Service Worker', err));
+        }
+    </script>
+
+    <!-- Add version checker script -->
+    <script>
+        // Versione corrente del sito
+        const currentVersion = '1.3';
+        
+        // Controlla se c'è una versione salvata in localStorage
+        const savedVersion = localStorage.getItem('siteVersion');
+        
+        // Se non esiste una versione salvata o è diversa da quella corrente
+        if (!savedVersion || savedVersion !== currentVersion) {
+            // Salva la nuova versione
+            localStorage.setItem('siteVersion', currentVersion);
+            
+            // Se c'era una versione precedente, ricarica la pagina per ottenere gli aggiornamenti
+            if (savedVersion && savedVersion !== currentVersion) {
+                console.log('Nuova versione rilevata. Aggiornamento in corso...');
+                window.location.reload(true);
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="512" height="512">
+	<title>success-svgrepo-com</title>
+	<style>
+		.s0 { opacity: .01;fill: #ffffff } 
+		.s1 { fill: #00ff00;stroke: #ff00ff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4 } 
+		.s2 { fill: none;stroke: #ffffff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 4 } 
+	</style>
+	<path fill-rule="evenodd" class="s0" d="m0 0h48v48h-48z"/>
+	<path class="s1" d="m24 4l5.3 3.8h6.5l2 6.2 5.2 3.8-2 6.2 2 6.2-5.2 3.8-2 6.2h-6.5l-5.3 3.8-5.3-3.8h-6.5l-2-6.2-5.2-3.8 2-6.2-2-6.2 5.2-3.8 2-6.2h6.5z"/>
+	<path class="s2" d="m17 24l5 5 10-10"/>
+</svg>

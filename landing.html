@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaxiPet Erika - Il migliore servizio di trasporto animali dal nord al sud Italia con amore e professionalità.">
+    <title>TaxiPet Erika - Trasporto Animali Con Amore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icone-animali-taxipet/icons-taxipet-erika/icon-512x512.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --primary-color: #ff00ff;
+            --secondary-color: #00a2ff;
+            --accent-color: #00ff00;
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            background: linear-gradient(135deg, rgba(255,0,255,0.1) 0%, rgba(0,162,255,0.1) 100%), url('icone-animali-taxipet/about-us.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: white;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            padding: 80px 0;
+        }
+        
+        .why-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .why-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .why-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .why-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .why-text h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(255, 0, 255, 0.2);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        /* Call to Action */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta .btn {
+            background-color: white;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding: 15px 40px;
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--text-color);
+            color: white;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+        }
+        
+        .contact-item img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Routes Section */
+        .routes {
+            padding: 80px 0;
+        }
+        
+        .routes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .route-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 30px;
+            overflow: hidden;
+        }
+        
+        .route-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .route-description {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .route-cities {
+            margin-top: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .route-line {
+            position: absolute;
+            top: 0;
+            left: 8px;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .route-city {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .city-marker {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-right: 15px;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px var(--primary-color);
+        }
+        
+        .city-name {
+            font-weight: 500;
+        }
+        
+        .route-return {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .why-us .container {
+                padding: 0 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="icone-animali-taxipet/logo.svg" alt="TaxiPet Erika Logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Non è solo un trasporto, è un viaggio d'amore per il tuo animale</h1>
+            <p>Dal Nord al Sud Italia e ritorno, affidati a chi ama gli animali quanto te e garantisce sicurezza, comfort e cura in ogni chilometro del percorso.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/3884675196" class="btn">Prenota Ora via WhatsApp</a>
+                <a href="tel:3501056475" class="btn btn-secondary">Chiamaci: 350 105 6475</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Perché i pet-genitori ci scelgono</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="icone-animali-taxipet/svg/cane.svg" alt="Esperienza" class="feature-icon">
+                    <h3>10+ Anni di Esperienza</h3>
+                    <p>Con oltre un decennio di esperienza nel trasporto animali, abbiamo perfezionato ogni aspetto del servizio per garantire il massimo comfort e sicurezza.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="icone-animali-taxipet/svg/gatto.svg" alt="Cura" class="feature-icon">
+                    <h3>Trasporto su Misura</h3>
+                    <p>Ogni animale è unico e ha esigenze specifiche. Il nostro servizio si adatta alle necessità del tuo pet per un viaggio sereno e senza stress.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="icone-animali-taxipet/svg/pappagallo.svg" alt="Esperti" class="feature-icon">
+                    <h3>Personale Specializzato</h3>
+                    <p>Il nostro team è composto da veri amanti degli animali, formati per gestire ogni situazione e garantire il massimo benessere durante il trasporto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <div class="why-content">
+                <div class="why-image">
+                    <img src="icone-animali-taxipet/taxi-piemonte.jpg" alt="Trasporto animali">
+                </div>
+                <div class="why-text">
+                    <h2>Perché affidarsi a TaxiPet Erika?</h2>
+                    <ul class="benefits-list">
+                        <li><strong>Veicoli specializzati</strong> dotati di tutti i comfort necessari per un viaggio sereno</li>
+                        <li><strong>Monitoraggio costante</strong> della salute e del benessere del tuo animale durante tutto il trasporto</li>
+                        <li><strong>Pause regolari</strong> per garantire riposo, idratazione e movimento ai nostri passeggeri a quattro zampe</li>
+                        <li><strong>Assistenza 24/7</strong> con aggiornamenti continui sullo stato del trasporto</li>
+                        <li><strong>Massima flessibilità</strong> nelle date e negli orari di partenza</li>
+                        <li><strong>Servizio door-to-door</strong> con ritiro e consegna direttamente ai domicili</li>
+                        <li><strong>70.000+ clienti soddisfatti</strong> in tutta Italia</li>
+                    </ul>
+                    <a href="index.html" class="btn">Scopri Tutti i Nostri Servizi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Routes Section -->
+    <section class="routes">
+        <div class="container">
+            <h2 class="section-title">I Nostri Percorsi</h2>
+            <div class="routes-container">
+                <div class="route-card">
+                    <h3 class="route-title">Versante Adriatico</h3>
+                    <p class="route-description">Trasporto animali lungo la costa adriatica, dal nord al sud e viceversa.</p>
+                    <div class="route-cities">
+                        <div class="route-line"></div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Trofarello</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Parma</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Bologna</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Rimini</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Ancona</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Pescara</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Foggia</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">... e altre città</div>
+                        </div>
+                    </div>
+                    <div class="route-return">
+                        <div class="city-marker"></div>
+                        <p>Servizio disponibile anche per il ritorno</p>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <h3 class="route-title">Versante Tirrenico</h3>
+                    <p class="route-description">Trasporto animali lungo la costa tirrenica, dal nord al sud e viceversa.</p>
+                    <div class="route-cities">
+                        <div class="route-line"></div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Trofarello</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Parma</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Bologna</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Firenze</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Roma</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Caserta</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Cosenza</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">... e altre città</div>
+                        </div>
+                    </div>
+                    <div class="route-return">
+                        <div class="city-marker"></div>
+                        <p>Servizio disponibile anche per il ritorno</p>
+                    </div>
+                </div>
+                <div class="route-card">
+                    <h3 class="route-title">Taxi Animali Piemonte</h3>
+                    <p class="route-description">Servizio di trasporto locale dedicato per brevi tragitti in Piemonte con auto piccola.</p>
+                    <div class="route-cities">
+                        <div class="route-line"></div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Torino</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Asti</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Alessandria</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Novara</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">Cuneo</div>
+                        </div>
+                        <div class="route-city">
+                            <div class="city-marker"></div>
+                            <div class="city-name">... e tutta la regione</div>
+                        </div>
+                    </div>
+                    <div class="route-return">
+                        <div class="city-marker"></div>
+                        <p>Servizio flessibile con date e orari personalizzati</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">La voce dei nostri clienti</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Il trasporto del mio Labrador da Milano a Palermo è stato impeccabile! Ero preoccupata per il lungo viaggio, ma il team di TaxiPet Erika mi ha tenuta costantemente aggiornata con foto e messaggi. Il mio cane è arrivato felice e rilassato, come se avesse fatto una semplice passeggiata! Non potrei essere più soddisfatta del servizio.</p>
+                <p class="testimonial-author">- Giulia M., Milano</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Pronto a far viaggiare il tuo amico a quattro zampe?</h2>
+            <p>Non lasciare che la distanza ti separi dal tuo animale. Affidati a chi lo tratterà con lo stesso amore e attenzione che gli daresti tu. Contattaci oggi stesso per una consulenza gratuita e un preventivo personalizzato!</p>
+            <a href="https://wa.me/3884675196" class="btn">Contattaci su WhatsApp</a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="icone-animali-taxipet/svg/whatsapp.svg" alt="WhatsApp">
+                    <a href="https://wa.me/3884675196">388 467 5196</a>
+                </div>
+                <div class="contact-item">
+                    <img src="icone-animali-taxipet/svg/current-marker.svg" alt="Telefono">
+                    <a href="tel:3501056475">350 105 6475</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="icone-animali-taxipet/logo.svg" alt="TaxiPet Erika Logo">
+            </div>
+            <p class="copyright">&copy; 2025 TaxiPet Erika - P.IVA: 01935590891 - Il miglior servizio di trasporto animali in Italia</p>
+        </div>
+    </footer>
+</body>
+</html> 
