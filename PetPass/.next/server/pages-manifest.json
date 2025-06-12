@@ -1,0 +1,7 @@
+{
+  "/_error": "pages/_error.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/api/petpass/[id]": "pages/api/petpass/[id].js",
+  "/api/petpass": "pages/api/petpass.js",
+  "/api/register": "pages/api/register.js"
+}

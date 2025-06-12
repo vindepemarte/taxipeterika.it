@@ -18,28 +18,71 @@ interface PetPass {
   }
 }
 
+interface Subscription {
+  id: string
+  status: string
+  planType: string
+  currentPeriodStart?: string
+  currentPeriodEnd?: string
+}
+
 export default function DashboardPage() {
   const { data: session, status } = useSession()
   const [petPasses, setPetPasses] = useState<PetPass[]>([])
+  const [subscription, setSubscription] = useState<Subscription | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (session) {
-      fetchPetPasses()
+      fetchData()
     }
   }, [session])
 
-  const fetchPetPasses = async () => {
+  const fetchData = async () => {
     try {
-      const response = await fetch('/api/petpass')
-      if (response.ok) {
-        const data = await response.json()
-        setPetPasses(data.petpasses)
+      // Fetch PetPasses
+      const petPassResponse = await fetch('/api/petpass')
+      if (petPassResponse.ok) {
+        const petPassData = await petPassResponse.json()
+        setPetPasses(petPassData.petpasses)
+      }
+
+      // Fetch Subscription info
+      const subscriptionResponse = await fetch('/api/subscription')
+      if (subscriptionResponse.ok) {
+        const subscriptionData = await subscriptionResponse.json()
+        setSubscription(subscriptionData.subscription)
       }
     } catch (error) {
-      console.error('Error fetching pet passes:', error)
+      console.error('Error fetching data:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  const getPlanDisplayName = (planType: string) => {
+    switch (planType) {
+      case 'free':
+        return 'Piano Free'
+      case 'pro':
+        return 'Piano Pro'
+      case 'business':
+        return 'Piano Business'
+      default:
+        return 'Piano Free'
+    }
+  }
+
+  const getPlanLimits = (planType: string) => {
+    switch (planType) {
+      case 'free':
+        return { petPasses: 1, description: 'Puoi creare fino a 1 PetPass gratuito' }
+      case 'pro':
+        return { petPasses: 5, description: 'Fino a 5 PetPass con tag metallici inclusi' }
+      case 'business':
+        return { petPasses: -1, description: 'PetPass illimitati con tutte le funzionalità' }
+      default:
+        return { petPasses: 1, description: 'Puoi creare fino a 1 PetPass gratuito' }
     }
   }
 
@@ -68,6 +111,10 @@ export default function DashboardPage() {
     )
   }
 
+  const currentPlan = subscription?.planType || 'free'
+  const planLimits = getPlanLimits(currentPlan)
+  const canCreateMore = planLimits.petPasses === -1 || petPasses.length < planLimits.petPasses
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -78,12 +125,53 @@ export default function DashboardPage() {
           </p>
         </div>
 
+        {/* Subscription Status Banner */}
+        {subscription && subscription.status === 'active' && (
+          <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="ml-3">
+                <p className="text-sm font-medium text-green-800">
+                  {getPlanDisplayName(currentPlan)} attivo fino al{' '}
+                  {subscription.currentPeriodEnd && 
+                    new Date(subscription.currentPeriodEnd).toLocaleDateString('it-IT')
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         <div className="mb-6">
-          <Link href="/create-petpass">
-            <Button size="lg">
-              ✨ Crea un nuovo PetPass
-            </Button>
-          </Link>
+          {canCreateMore ? (
+            <Link href="/create-petpass">
+              <Button size="lg">
+                ✨ Crea un nuovo PetPass
+              </Button>
+            </Link>
+          ) : (
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <svg className="h-5 w-5 text-yellow-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                  </svg>
+                  <p className="text-sm font-medium text-yellow-800">
+                    Hai raggiunto il limite di {planLimits.petPasses} PetPass per il piano {getPlanDisplayName(currentPlan)}
+                  </p>
+                </div>
+                <Link href="/pricing">
+                  <Button size="sm">
+                    Aggiorna Piano
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
 
         {loading ? (
@@ -102,9 +190,15 @@ export default function DashboardPage() {
             <p className="text-gray-600 mb-6">
               Crea il primo PetPass per il tuo amico a quattro zampe!
             </p>
-            <Link href="/create-petpass">
-              <Button>Crea il primo PetPass</Button>
-            </Link>
+            {canCreateMore ? (
+              <Link href="/create-petpass">
+                <Button>Crea il primo PetPass</Button>
+              </Link>
+            ) : (
+              <Link href="/pricing">
+                <Button>Aggiorna Piano</Button>
+              </Link>
+            )}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -144,9 +238,14 @@ export default function DashboardPage() {
                       Modifica
                     </Button>
                   </Link>
-                  {!petPass.metalTag && (
+                  {!petPass.metalTag && currentPlan === 'free' && (
                     <Button variant="primary" className="w-full" size="sm">
                       Ordina Tag Metallico (€19.99)
+                    </Button>
+                  )}
+                  {!petPass.metalTag && currentPlan !== 'free' && (
+                    <Button variant="primary" className="w-full" size="sm">
+                      Ordina Tag Metallico (Incluso)
                     </Button>
                   )}
                   {petPass.metalTag && (
@@ -167,14 +266,23 @@ export default function DashboardPage() {
           </h2>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-600">Piano Free</p>
-              <p className="text-sm text-gray-500">
-                Puoi creare fino a 1 PetPass gratuito
+              <p className="text-gray-900 font-medium">{getPlanDisplayName(currentPlan)}</p>
+              <p className="text-sm text-gray-500 mt-1">
+                {planLimits.description}
               </p>
+              <p className="text-sm text-gray-500 mt-1">
+                PetPass utilizzati: {petPasses.length}
+                {planLimits.petPasses !== -1 && ` / ${planLimits.petPasses}`}
+              </p>
+              {subscription?.currentPeriodEnd && subscription.status === 'active' && (
+                <p className="text-sm text-gray-500 mt-1">
+                  Rinnovo: {new Date(subscription.currentPeriodEnd).toLocaleDateString('it-IT')}
+                </p>
+              )}
             </div>
             <Link href="/pricing">
               <Button variant="primary">
-                Aggiorna Piano
+                {currentPlan === 'free' ? 'Aggiorna Piano' : 'Gestisci Piano'}
               </Button>
             </Link>
           </div>

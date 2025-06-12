@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { SessionProvider } from 'next-auth/react'
+import { Providers } from './providers'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={inter.className}>
-        <SessionProvider>
+        <Providers>
           <div className="min-h-screen flex flex-col">
             <Header />
             <main className="flex-1">
@@ -28,7 +28,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   )

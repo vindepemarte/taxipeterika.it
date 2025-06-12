@@ -92,7 +92,7 @@ mkdir -p public/qrcodes
 npm run dev
 ```
 
-L'applicazione sarà disponibile su [http://localhost:3000](http://localhost:3000).
+L'applicazione sarà disponibile su [http://localhost:3006](http://localhost:3006).
 
 ## Struttura del Progetto
 
